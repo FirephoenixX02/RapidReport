@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS rapid_report_reports (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    reporterName VARCHAR(255) NOT NULL,
+    reportedName VARCHAR(255) NOT NULL,
+    reportedUUID VARCHAR(255) NOT NULL,
+    reason VARCHAR(255) NOT NULL,
+    status VARCHAR(255) NOT NULL
+);
