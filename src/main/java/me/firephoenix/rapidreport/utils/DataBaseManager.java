@@ -81,8 +81,7 @@ public class DataBaseManager {
         CompletableFuture<ResultSet> future = new CompletableFuture<>();
 
         RapidReport.INSTANCE.proxy.getScheduler().buildTask(RapidReport.INSTANCE, () -> {
-            try (Connection connection = hikariCP.getConnection();
-                 PreparedStatement preparedStatement = connection.prepareStatement(statement)) {
+            try (Connection connection = hikariCP.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(statement)) {
                 ResultSet resultSet = preparedStatement.executeQuery();
                 future.complete(resultSet);
             } catch (SQLException e) {
@@ -113,8 +112,7 @@ public class DataBaseManager {
             for (String query : queries) {
                 // If you use the legacy way you have to check for empty queries here.
                 if (query.isEmpty()) continue;
-                try (Connection conn = hikariCP.getConnection();
-                     PreparedStatement stmt = conn.prepareStatement(query)) {
+                try (Connection conn = hikariCP.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
                     stmt.execute();
                 } catch (SQLException e) {
                     RapidReport.INSTANCE.logger.info("Error executing database setup!", e);

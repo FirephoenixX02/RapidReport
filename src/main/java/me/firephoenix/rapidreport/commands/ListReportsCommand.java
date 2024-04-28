@@ -40,7 +40,7 @@ public class ListReportsCommand implements SimpleCommand {
                 return;
             }
 
-            commandSource.sendRichMessage(RapidReport.INSTANCE.getChatPrefix() + "<red>Fetching first 10 reports for player <gray>" + args[0] +   "<red> from database...");
+            commandSource.sendRichMessage(RapidReport.INSTANCE.getChatPrefix() + "<red>Fetching first 10 reports for player <gray>" + args[0] + "<red> from database...");
 
             CompletableFuture<ResultSet> future = RapidReport.INSTANCE.getDataBaseManager().getSQLStatementResultAsync("SELECT * FROM rapid_report_reports WHERE reportedName = '" + args[0] + "' LIMIT 10");
 
