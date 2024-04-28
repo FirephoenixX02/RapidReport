@@ -21,13 +21,10 @@ public class ReportGUICommand implements SimpleCommand {
     public void execute(final Invocation invocation) {
         CommandSource commandSource = invocation.source();
 
-        String[] args = invocation.arguments();
-
         if (!(commandSource instanceof Player)) {
             commandSource.sendRichMessage(RapidReport.INSTANCE.getChatPrefix() + "<red>This command can only be executed by a player.");
             return;
         }
-
 
 
         Inventory inventory = new Inventory(InventoryType.GENERIC_9X4);
