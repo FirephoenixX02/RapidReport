@@ -66,11 +66,8 @@ public class DataBaseManager {
 
     public void runStatementAsync(String statement) {
         RapidReport.INSTANCE.proxy.getScheduler().buildTask(RapidReport.INSTANCE, () -> {
-            try {
-                Connection connection = hikariCP.getConnection();
-                PreparedStatement preparedStatement = connection.prepareStatement(statement);
+            try (Connection connection = hikariCP.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(statement)) {
                 preparedStatement.execute();
-                preparedStatement.close();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
