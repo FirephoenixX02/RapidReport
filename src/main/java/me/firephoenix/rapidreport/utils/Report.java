@@ -14,6 +14,7 @@ public class Report {
     public final UUID reportedPlayerUUID;
     public final String reason;
     public final String status;
+    public int databaseID = 0;
 
     public Report(final String reporterPlayerName, final String reportedPlayerName, final UUID reportedPlayerUUID, final String reason, final String status) {
         this.reporterPlayerName = reporterPlayerName;
@@ -21,6 +22,15 @@ public class Report {
         this.reportedPlayerUUID = reportedPlayerUUID;
         this.reason = reason;
         this.status = status;
+    }
+
+    public Report(final String reporterPlayerName, final String reportedPlayerName, final UUID reportedPlayerUUID, final String reason, final String status, final int databaseID) {
+        this.reporterPlayerName = reporterPlayerName;
+        this.reportedPlayerName = reportedPlayerName;
+        this.reportedPlayerUUID = reportedPlayerUUID;
+        this.reason = reason;
+        this.status = status;
+        this.databaseID = databaseID;
     }
 
 }

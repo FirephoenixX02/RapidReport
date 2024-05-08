@@ -14,6 +14,7 @@ import me.firephoenix.rapidreport.commands.CloseReportCommand;
 import me.firephoenix.rapidreport.commands.ListReportsCommand;
 import me.firephoenix.rapidreport.commands.ReportCommand;
 import me.firephoenix.rapidreport.commands.ReportGUICommand;
+import me.firephoenix.rapidreport.ui.UIManager;
 import me.firephoenix.rapidreport.utils.DataBaseManager;
 import org.slf4j.Logger;
 
@@ -46,6 +47,8 @@ public class RapidReport {
     public DataBaseManager dataBaseManager;
     @Getter
     public String chatPrefix = "<gray>[<red>RapidReport<gray>] ";
+    @Getter
+    public UIManager uiManager;
 
     @Inject
     public RapidReport(ProxyServer proxyServer, Logger logger, @DataDirectory final Path folder) {
@@ -65,6 +68,8 @@ public class RapidReport {
         dataBaseManager = new DataBaseManager();
 
         dataBaseManager.initDB();
+
+        uiManager = new UIManager();
 
         commandManager.register(commandManager.metaBuilder("report").plugin(this).build(), new ReportCommand());
         commandManager.register(commandManager.metaBuilder("reports").plugin(this).build(), new ListReportsCommand());

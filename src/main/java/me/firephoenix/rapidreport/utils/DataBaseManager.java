@@ -93,6 +93,10 @@ public class DataBaseManager {
         runStatementAsync("INSERT INTO rapid_report_reports (reporterName, reportedName, reportedUUID, reason, status) VALUES ('" + report.reporterPlayerName + "', '" + report.reportedPlayerName + "', '" + report.reportedPlayerUUID.toString() + "', '" + report.reason + "', '" + report.status + "')");
     }
 
+    public void closeReport(Report report) {
+        runStatementAsync("UPDATE rapid_report_reports SET status = 'resolved' WHERE id = " + report.databaseID + " AND status = 'unresolved'");
+    }
+
     public void initDB() {
         // first lets read our setup file.
         // This file contains statements to create our inital tables.
