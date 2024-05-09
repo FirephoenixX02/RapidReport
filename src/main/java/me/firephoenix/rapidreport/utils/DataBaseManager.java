@@ -94,7 +94,7 @@ public class DataBaseManager {
     }
 
     public void closeReport(Report report) {
-        runStatementAsync("UPDATE rapid_report_reports SET status = 'resolved' WHERE id = " + report.databaseID + " AND status = 'unresolved'");
+        runStatementAsync("UPDATE rapid_report_reports SET status = 'Resolved' WHERE id = " + report.databaseID + " AND status = 'unresolved'");
     }
 
     public void initDB() {

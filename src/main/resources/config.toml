@@ -4,3 +4,55 @@ port = "3306"
 user = "user"
 password = "changeme"
 db = "your-database"
+
+[report_reasons]
+
+[report_reasons.cheating]
+description = "Cheating"
+display_name = "§cCheating"
+item_material = "DIAMOND_SWORD"
+
+[report_reasons.inappropriate_name]
+description = "Inappropriate name"
+display_name = "§eInappropriate Name"
+item_material = "NAME_TAG"
+
+[report_reasons.inappropriate_skin]
+description = "Inappropriate skin"
+display_name = "§aInappropriate Skin"
+item_material = "LEATHER"
+
+[report_reasons.offsensive_chat]
+description = "Offensive chat"
+display_name = "§bAbusive Chat"
+item_material = "BOOK"
+
+[report_reasons.unsportsmanlike_conduct]
+description = "Unsportsmanlike Behavior"
+display_name = "§4Unsportsmanlike Behavior"
+item_material = "BARRIER"
+
+[report_reasons.advertising]
+description = "Advertising"
+display_name = "§5Advertising"
+item_material = "OAK_SIGN"
+
+[report_reasons.impersonation]
+description = "Impersonation"
+display_name = "§fImpersonation"
+item_material = "PLAYER_HEAD"
+
+[report_reasons.account_sharing]
+description = "Account sharing"
+display_name = "§bAccount Sharing"
+item_material = "ARMOR_STAND"
+
+[report_reasons.boosting]
+description = "Boosting"
+display_name = "§cBoosting"
+item_material = "LEVER"
+
+[report_reasons.evasion]
+description = "Ban Evasion"
+display_name = "§cBan Evasion"
+item_material = "ENDER_PEARL"

@@ -15,14 +15,18 @@ public class UIComponent {
     private ItemStack itemStack;
     @Setter
     private Runnable clickListener;
+    @Setter
+    private String permission;
 
-    public UIComponent(ItemStack itemStack) {
+    public UIComponent(ItemStack itemStack, String permission) {
         this.itemStack = itemStack;
+        this.permission = permission;
     }
 
-    public UIComponent(ItemStack itemStack, Runnable clickListener) {
+    public UIComponent(ItemStack itemStack, Runnable clickListener, String permission) {
         this.itemStack = itemStack;
         this.clickListener = clickListener;
+        this.permission = permission;
     }
 
     public void runClickListener(ProtocolizePlayer protocolizePlayer) {
@@ -32,6 +36,6 @@ public class UIComponent {
 
     public boolean hasPermission(ProtocolizePlayer protocolizePlayer) {
         if (RapidReport.INSTANCE.getProxy().getPlayer(protocolizePlayer.uniqueId()).isEmpty()) return false;
-        return RapidReport.INSTANCE.getProxy().getPlayer(protocolizePlayer.uniqueId()).get().hasPermission("rapidreport.gui");
+        return RapidReport.INSTANCE.getProxy().getPlayer(protocolizePlayer.uniqueId()).get().hasPermission(permission);
     }
 }
