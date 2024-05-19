@@ -1,7 +1,5 @@
 package me.firephoenix.rapidreport.ui;
 
-import com.velocitypowered.api.command.CommandSource;
-import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
 import dev.simplix.protocolize.api.ClickType;
 import dev.simplix.protocolize.api.chat.ChatElement;

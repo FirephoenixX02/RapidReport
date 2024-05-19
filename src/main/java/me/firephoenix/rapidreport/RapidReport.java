@@ -16,6 +16,7 @@ import me.firephoenix.rapidreport.commands.ReportCommand;
 import me.firephoenix.rapidreport.commands.ReportGUICommand;
 import me.firephoenix.rapidreport.ui.UIManager;
 import me.firephoenix.rapidreport.utils.DataBaseManager;
+import org.bstats.velocity.Metrics;
 import org.slf4j.Logger;
 
 import java.io.File;
@@ -49,12 +50,14 @@ public class RapidReport {
     public String chatPrefix = "<gray>[<red>RapidReport<gray>] ";
     @Getter
     public UIManager uiManager;
+    private final Metrics.Factory metricsFactory;
 
     @Inject
-    public RapidReport(ProxyServer proxyServer, Logger logger, @DataDirectory final Path folder) {
+    public RapidReport(ProxyServer proxyServer, Logger logger, @DataDirectory final Path folder, Metrics.Factory metricsFactory) {
         this.proxy = proxyServer;
         this.logger = logger;
         this.dataFolderPath = folder;
+        this.metricsFactory = metricsFactory;
     }
 
     @Subscribe
@@ -70,6 +73,9 @@ public class RapidReport {
         dataBaseManager.initDB();
 
         uiManager = new UIManager();
+
+        //bStats
+        Metrics metrics = metricsFactory.make(this, 21977);
 
         commandManager.register(commandManager.metaBuilder("report").plugin(this).build(), new ReportCommand());
         commandManager.register(commandManager.metaBuilder("reports").plugin(this).build(), new ListReportsCommand());

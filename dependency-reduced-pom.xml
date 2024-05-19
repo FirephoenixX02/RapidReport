@@ -78,6 +78,10 @@
                   <pattern>com.zaxxer.hikari</pattern>
                   <shadedPattern>me.firephoenix.hikari</shadedPattern>
                 </relocation>
+                <relocation>
+                  <pattern>org.bstats</pattern>
+                  <shadedPattern>me.firephoenix.bstats</shadedPattern>
+                </relocation>
               </relocations>
             </configuration>
           </execution>
