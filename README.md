@@ -5,3 +5,9 @@ Other plugins typically require installation on all backend servers, which, in m
 
 # Dependencies
 RapidReport requires [Protocolize](https://github.com/Exceptionflug/protocolize) aswell as the [legacy data module](https://ci.exceptionflug.de/job/Protocolize-Legacy-Data/) from Protocolize.
+
+# Permissions
+- ``rapidreport.gui`` for opening the moderator gui
+- ``rapidreport.closereports`` to close reports
+- ``rapidreport.reports`` to list all reports
+- ``rapidreport.report`` to report someone
